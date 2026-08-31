@@ -20,6 +20,7 @@ if (length(faltantes) > 0L) install.packages(faltantes)
 invisible(lapply(pacotes, library, character.only = TRUE))
 
 source("src/00_config.R")
+source("src/01_utils.R")
 garantir_diretorios()
 dir.create("results", recursive = TRUE, showWarnings = FALSE)
 
@@ -175,7 +176,80 @@ resumo_anual <- full_join(
 
 readr::write_csv(resumo_anual, "results/resumo_anual_casos.csv", na = "")
 
+# -----------------------------------------------------------------------------
+# Resumo por código CID-10 Q20-Q28 (SINASC + SIH-RD)
+# -----------------------------------------------------------------------------
+codigos_sinasc <- unlist(extrair_codigos_q(sinasc$CODANOMAL))
+codigos_sinasc <- codigos_sinasc[grepl("^Q2[0-8]", codigos_sinasc)]
+codigos_sih <- unlist(extrair_codigos_q(sih$DIAG_PRINC))
+codigos_sih <- codigos_sih[grepl("^Q2[0-8]", codigos_sih)]
+
+resumo_cid <- dplyr::full_join(
+  as.data.frame(table(codigos_sinasc), stringsAsFactors = FALSE) %>%
+    dplyr::rename(cid = codigos_sinasc, sinasc_n = Freq),
+  as.data.frame(table(codigos_sih), stringsAsFactors = FALSE) %>%
+    dplyr::rename(cid = codigos_sih, sih_n = Freq),
+  by = "cid"
+) %>%
+  tidyr::replace_na(list(sinasc_n = 0L, sih_n = 0L)) %>%
+  dplyr::mutate(total = sinasc_n + sih_n) %>%
+  dplyr::arrange(dplyr::desc(total), cid)
+
+readr::write_csv(resumo_cid, "results/resumo_cid_q20_q28.csv", na = "")
+
+# Figura: distribuição dos casos por código CID-10 (top 15)
+resumo_cid_top <- resumo_cid %>% dplyr::slice_max(total, n = 15)
+resumo_cid_long <- resumo_cid_top %>%
+  tidyr::pivot_longer(c(sinasc_n, sih_n), names_to = "fonte", values_to = "n") %>%
+  dplyr::mutate(
+    fonte = ifelse(fonte == "sinasc_n", "SINASC", "SIH-RD"),
+    cid = factor(cid, levels = resumo_cid_top$cid[order(-resumo_cid_top$total)])
+  )
+
+fig_cid <- ggplot(resumo_cid_long, aes(x = cid, y = n, fill = fonte)) +
+  geom_col(position = "dodge") +
+  labs(title = "Distribuição dos casos por código CID-10 (top 15)",
+       subtitle = "Q20-Q28 — Campos dos Goytacazes (RJ), 2020–2024",
+       x = "Código CID-10", y = "Número de casos", fill = "Fonte") +
+  scale_fill_manual(values = c("SINASC" = "#800020", "SIH-RD" = "#b3566b")) +
+  theme_bw() +
+  theme(plot.title = element_text(face = "bold", hjust = 0.5),
+        axis.text.x = element_text(angle = 45, hjust = 1))
+
+salvar_figura(fig_cid, "casos_por_diagnostico_cid.png", largura = 10, altura = 6)
+
+# -----------------------------------------------------------------------------
+# Tabelas de perfil (para o README e relatórios)
+# -----------------------------------------------------------------------------
+resumo_perfil_sinasc <- sinasc %>%
+  dplyr::count(SEXO, RACACOR, name = "n") %>%
+  dplyr::arrange(dplyr::desc(n))
+readr::write_csv(resumo_perfil_sinasc,
+                 "results/resumo_perfil_sinasc_sexo_raca.csv", na = "")
+
+sih_perfil <- sih %>%
+  dplyr::mutate(
+    VAL_TOT = as.numeric(VAL_TOT),
+    DIAS_PERM = as.numeric(DIAS_PERM),
+    MORTE = toupper(as.character(MORTE)) == "SIM"
+  )
+
+resumo_perfil_sih <- sih_perfil %>%
+  dplyr::summarise(
+    n = dplyr::n(),
+    neonatos = sum(classe_idade == "Neonato", na.rm = TRUE),
+    lactentes = sum(classe_idade == "Lactente", na.rm = TRUE),
+    sexo_masculino = sum(SEXO == "Masculino", na.rm = TRUE),
+    sexo_feminino = sum(SEXO == "Feminino", na.rm = TRUE),
+    obitos = sum(MORTE, na.rm = TRUE),
+    custo_mediana = stats::median(VAL_TOT, na.rm = TRUE),
+    custo_total = sum(VAL_TOT, na.rm = TRUE),
+    permanencia_mediana = stats::median(DIAS_PERM, na.rm = TRUE)
+  )
+readr::write_csv(resumo_perfil_sih, "results/resumo_perfil_sih.csv", na = "")
+
 cat("\n========== ANÁLISE EXPLORATÓRIA — FINAL ==========\n")
 cat("Figuras geradas em:", CONFIG$dirs$figuras, "\n")
 cat("Resumo anual:", normalizePath("results/resumo_anual_casos.csv", winslash = "/"), "\n")
+cat("Resumo CID:", normalizePath("results/resumo_cid_q20_q28.csv", winslash = "/"), "\n")
 print(resumo_anual)

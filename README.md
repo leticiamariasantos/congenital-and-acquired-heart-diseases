@@ -4,7 +4,10 @@ Análise de **cardiopatias congênitas (CID-10 Q20–Q28)** em nascidos vivos e 
 internações hospitalares de menores de um ano, residentes em
 **Campos dos Goytacazes (RJ)**, no período de **2020 a 2024**.
 
-Projeto desenvolvido como parte do Trabalho de Conclusão de Curso (TCC).
+**Autora:** Letícia Maria Santos
+**Orientadora:** Francielly da Silva Santos Moreira
+
+Projeto desenvolvido como Trabalho de Conclusão de Curso (TCC).
 
 > **Repositório oficial:** https://github.com/leticiamariasantos/congenital-and-acquired-heart-diseases
 
@@ -37,8 +40,77 @@ São extraídos os registros com:
 1. Estimar a frequência de cardiopatias congênitas (Q20–Q28) em nascidos vivos
    e internações de menores de um ano em Campos dos Goytacazes (2020–2024).
 2. Descrever o perfil sociodemográfico e clínico dos casos.
-3. Fornecer um pipeline **reprodutível** e **auditável** de extração e
-   processamento dos microdados do DATASUS.
+3. Fornecer um pipeline **reprodutível**, **portátil** e **auditável** de
+   extração e processamento dos microdados do DATASUS.
+
+---
+
+## Principais resultados
+
+### Casos por ano
+
+| Ano | Nascidos vivos Q20–Q28 (SINASC) | Internações Q20–Q28 < 1 ano (SIH-RD) |
+|-----|----------------------------------|---------------------------------------|
+| 2020 | 5 | 7 |
+| 2021 | 4 | 12 |
+| 2022 | 6 | 16 |
+| 2023 | 7 | 10 |
+| 2024 | 6 | 10 |
+| **Total** | **28** | **55** |
+
+![Casos por ano (SINASC)](results/figures/sinasc_casos_por_ano.png)
+
+### Distribuição por código CID-10 (Q20–Q28)
+
+| CID-10 | SINASC | SIH-RD | Total |
+|--------|--------|--------|-------|
+| Q213 (defeitos do septo ventricular) | 4 | 9 | 13 |
+| Q210 (defeitos do septo atrial) | 1 | 10 | 11 |
+| Q248 (outras malformações cardíacas) | 7 | 2 | 9 |
+| Q249 (malformação cardíaca não especificada) | 7 | 2 | 9 |
+| Q250 (permeabilidade do canal arterial) | 0 | 8 | 8 |
+| Q251 (coarctação da aorta) | 2 | 4 | 6 |
+| Q270 (síndromes arteriais congênitas) | 4 | 0 | 4 |
+| Demais códigos | 3 | 20 | 23 |
+
+> A tabela completa está em [`results/resumo_cid_q20_q28.csv`](results/resumo_cid_q20_q28.csv).
+
+![Distribuição por código CID-10 (top 15)](results/figures/casos_por_diagnostico_cid.png)
+
+### Perfil dos casos — SINASC (nascidos vivos)
+
+| Sexo | Branca | Parda | Preta | Total |
+|------|--------|-------|-------|-------|
+| Feminino | 4 | 8 | 3 | 15 |
+| Masculino | 9 | 2 | 2 | 13 |
+| **Total** | **13** | **10** | **5** | **28** |
+
+![Sexo × raça/cor (SINASC)](results/figures/sinasc_casos_por_raca_sexo.png)
+
+![Distribuição da idade materna (SINASC)](results/figures/sinasc_distribuicao_idade_materna.png)
+
+### Perfil das internações — SIH-RD (menores de 1 ano)
+
+| Indicador | Valor |
+|-----------|-------|
+| Total de internações | 55 |
+| Neonatos (0–28 dias) | 11 |
+| Lactentes (29–364 dias) | 44 |
+| Sexo feminino / masculino | 25 / 30 |
+| Óbitos | 5 |
+| Custo mediano por internação | R$ 4.519,02 |
+| Custo total | R$ 517.580,70 |
+| Permanência mediana | 14 dias |
+
+![Internações por faixa etária (SIH-RD)](results/figures/sih_internacoes_por_classe_etaria.png)
+
+![Custo total por faixa etária (SIH-RD)](results/figures/sih_custo_total_por_classe_etaria.png)
+
+![Internações — série temporal mensal (SIH-RD)](results/figures/sih_internacoes_serie_temporal_mensal.png)
+
+> Todos os valores são reproduzíveis por
+> [`analysis/01_analise_exploratoria.R`](analysis/01_analise_exploratoria.R) e
+> pelas tabelas em `results/resumo_*.csv`.
 
 ---
 
@@ -59,7 +131,7 @@ São extraídos os registros com:
 ├── results/
 │   ├── auditoria/            # CSVs/JSONs de auditoria e metadados
 │   ├── figures/              # Figuras geradas
-│   └── *.csv                 # Tabelas finais (CSV)
+│   └── *.csv                 # Tabelas finais e resumos
 ├── src/                      # Código-fonte (pipeline)
 │   ├── 00_config.R           # Configurações e caminhos
 │   ├── 01_utils.R            # Funções utilitárias
@@ -71,6 +143,7 @@ São extraídos os registros com:
 ├── tests/
 │   └── test_utils.R          # Testes das funções utilitárias
 ├── .gitignore                # Arquivos/pastas ignorados pelo Git
+├── .gitattributes            # Normalização de fim de linha e binários
 ├── LICENSE                   # MIT
 ├── README.en.md              # Resumo em inglês
 ├── README.md
@@ -115,8 +188,7 @@ Os scripts:
 Rscript analysis/01_analise_exploratoria.R
 ```
 
-Gera as figuras em `results/figures/` e o resumo anual em
-`results/resumo_anual_casos.csv`.
+Gera as figuras em `results/figures/` e as tabelas de resumo em `results/`.
 
 ### 4. Rodar os testes
 
@@ -126,31 +198,96 @@ Rscript tests/test_utils.R
 
 ---
 
-## Principais resultados
+## Reproducibilidade
 
-| Ano | Nascidos vivos Q20–Q28 (SINASC) | Internações Q20–Q28 < 1 ano (SIH-RD) |
-|-----|----------------------------------|---------------------------------------|
-| 2020 | 5 | 7 |
-| 2021 | 4 | 12 |
-| 2022 | 6 | 16 |
-| 2023 | 7 | 10 |
-| 2024 | 6 | 10 |
-| **Total** | **28** | **55** |
+- **Caminhos relativos** à raiz do repositório (sem caminhos absolutos).
+- **Cache local** de downloads (`data/cache/`, ignorado pelo Git), que evita
+  novos downloads e garante os mesmos insumos.
+- **Metadados de execução** com versões de pacotes, versão do R, `sessionInfo()`
+  e **hashes SHA-256** dos arquivos gerados (`results/auditoria/`).
+- **Trilha de auditoria** por linha: `audit_row_id`, `audit_hash_linha` e
+  colunas `audit_*` que registram cada critério de inclusão.
+- **Testes automatizados** (`tests/test_utils.R`) para as funções críticas.
+- **Semente fixa** quando houver aleatoriedade (não há nas etapas atuais).
 
-- Internações por faixa etária: **11 neonatos** (0–28 dias) e **44 lactentes**
-  (29–364 dias).
-- Detalhes metodológicos em [`docs/METODOLOGIA.md`](docs/METODOLOGIA.md).
-- Relatório de auditoria em [`docs/AUDITORIA.md`](docs/AUDITORIA.md).
+## Portabilidade
+
+- Código em **R puro** (sem dependências de caminhos do sistema ou de serviços
+  externos além do DATASUS).
+- **UTF-8** em todos os arquivos; `.gitattributes` normaliza fim de linha.
+- Compatível com **Windows/macOS/Linux** (testado em Windows 11 x64).
+- Para **reprodutibilidade de longo prazo**, recomenda-se travar as versões dos
+  pacotes com [`renv`](https://rstudio.github.io/renv/):
+  ```r
+  renv::init()
+  renv::snapshot()
+  ```
+
+## Conformidade (compliance)
+
+- **Privacidade (LGPD):** as colunas do SIH-RD com dados pessoais ou
+  identificadores únicos (`CPF_AUT`, `GESTOR_CPF`, `GESTOR_DT`, `IDENT`,
+  `N_AIH`) são **removidas no pipeline** antes da publicação
+  (`CONFIG$colunas_sensiveis_sih`). Não são publicados CPF, CNES de pessoa
+  física ou identificadores de paciente.
+- **Declaração de uso de IA:** conforme **Portaria CNPq nº 2.664/2026**
+  (ver seção abaixo).
+- **Licença de código:** MIT License (ver [LICENSE](LICENSE)).
+- **Dados:** DATASUS e INMET são fontes públicas; verifique os termos de uso de
+  cada fonte antes de redistribuição.
+
+## Transparência
+
+- **Código aberto** e versionado (histórico completo no GitHub).
+- **Dados e metadados abertos** em `results/` (CSVs) e `results/auditoria/`
+  (JSON com critérios, versões e hashes).
+- **Critérios de inclusão e thresholds documentados** em
+  [`docs/METODOLOGIA.md`](docs/METODOLOGIA.md).
+- **Relatório de auditoria** completo em [`docs/AUDITORIA.md`](docs/AUDITORIA.md),
+  incluindo bugs corrigidos e impacto nos resultados.
 
 ---
 
-## Reproducibilidade
+## Declaração de uso de Inteligência Artificial (Portaria CNPq nº 2.664/2026)
 
-- Caminhos relativos à raiz do repositório (sem caminhos absolutos).
-- Cache local de downloads (`data/cache/`, ignorado pelo Git).
-- Metadados com versões de pacotes, versão do R, `sessionInfo()` e hashes
-  SHA-256 dos arquivos gerados (`results/auditoria/`).
-- Cada linha das tabelas finais possui `audit_row_id` e `audit_hash_linha`.
+Em conformidade com a Portaria CNPq nº 2.664/2026, declaramos que:
+
+1. **Ferramentas de IA generativa** (assistentes de programação e de edição de
+   texto baseados em modelos de linguagem) foram utilizadas como **apoio
+   técnico** nas seguintes etapas:
+   - auditoria, refatoração e documentação do código;
+   - elaboração de tabelas, gráficos e textos de suporte.
+2. **Nenhum dado foi gerado por IA.** Todos os dados analisados provêm de
+   fontes públicas (DATASUS e INMET) e foram processados por código aberto e
+   verificável.
+3. A **interpretação científica**, a **definição metodológica**, a **validação
+   dos resultados** e a **revisão crítica** são de responsabilidade exclusiva
+   da autora e da orientadora.
+4. Todos os resultados apresentados foram **revisados e validados**
+   manualmente antes da publicação.
+
+---
+
+## Contribuições (CRediT)
+
+*Contributor Roles Taxonomy* — papéis de autoria:
+
+| Papel (CRediT) | Letícia Maria Santos | Francielly da Silva Santos Moreira |
+|----------------|:---:|:---:|
+| Conceituação | ✓ | ✓ |
+| Curadoria de dados | ✓ | |
+| Análise formal | ✓ | |
+| Aquisição de financiamento | | |
+| Investigação | ✓ | |
+| Metodologia | ✓ | ✓ |
+| Administração do projeto | | ✓ |
+| Recursos | ✓ | |
+| Software | ✓ | |
+| Supervisão | | ✓ |
+| Validação | ✓ | ✓ |
+| Visualização | ✓ | |
+| Escrita – rascunho original | ✓ | |
+| Escrita – revisão e edição | ✓ | ✓ |
 
 ---
 
@@ -161,26 +298,23 @@ Rscript tests/test_utils.R
 - **INMET** — Estação A607 (Campos dos Goytacazes), dados meteorológicos
   horários 2020–2024.
 
-> **Privacidade:** as colunas do SIH-RD com dados pessoais ou identificadores
-> únicos (`CPF_AUT`, `GESTOR_CPF`, `GESTOR_DT`, `IDENT`, `N_AIH`) são removidas
-> no pipeline antes da publicação (ver [`docs/METODOLOGIA.md`](docs/METODOLOGIA.md)).
-
 ---
 
 ## Como citar
 
-> Santos, L. M. *Cardiopatias Congênitas e Adquiridas*. Trabalho de Conclusão
-> de Curso. Repositório: https://github.com/leticiamariasantos/congenital-and-acquired-heart-diseases
+> Santos, L. M.; Moreira, F. S. S. (orient.). *Cardiopatias Congênitas e
+> Adquiridas*. Trabalho de Conclusão de Curso. Repositório:
+> https://github.com/leticiamariasantos/congenital-and-acquired-heart-diseases
 
 Formato BibTeX:
 
 ```bibtex
-@misc{santos_cardiologias,
+@misc{santos_cardiopatias,
   author       = {Santos, Letícia Maria},
   title        = {Cardiopatias Congênitas e Adquiridas},
   year         = {2026},
-  howpublished = {\url{https://github.com/leticiamariasantos/congenital-and-acquired-heart-diseases}},
-  note         = {Trabalho de Conclusão de Curso}
+  note         = {Orientadora: Francielly da Silva Santos Moreira. Trabalho de Conclusão de Curso},
+  howpublished = {\url{https://github.com/leticiamariasantos/congenital-and-acquired-heart-diseases}}
 }
 ```
 
