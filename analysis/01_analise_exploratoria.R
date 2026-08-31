@@ -52,32 +52,27 @@ salvar_figura <- function(plot, nome, largura = 8, altura = 5) {
 }
 
 # -----------------------------------------------------------------------------
-# SINASC — série temporal mensal (completando meses sem casos com zero)
+# SINASC — casos por ano
 # -----------------------------------------------------------------------------
-grade_meses <- data.frame(
-  mes_ano = seq(as.Date("2020-01-01"), as.Date("2024-12-01"), by = "month")
-)
-
-sinasc_mes <- sinasc %>%
-  count(mes_ano, name = "n") %>%
-  right_join(grade_meses, by = "mes_ano") %>%
+sinasc_ano <- sinasc %>%
+  count(ano, name = "n") %>%
+  right_join(data.frame(ano = CONFIG$anos), by = "ano") %>%
   replace_na(list(n = 0L))
 
-fig_sinasc_temporal <- ggplot(sinasc_mes, aes(x = mes_ano, y = n)) +
-  geom_col(fill = cor_bordo, width = 25) +
+fig_sinasc_temporal <- ggplot(sinasc_ano, aes(x = ano, y = n)) +
+  geom_col(fill = cor_bordo, width = 0.7) +
   labs(
     title = "Casos de cardiopatia congênita (Q20-Q28) — SINASC",
     subtitle = "Campos dos Goytacazes (RJ), 2020–2024",
     x = "Ano", y = "Número de nascidos vivos"
   ) +
-  scale_x_date(date_breaks = "1 year", date_labels = "%Y",
-               expand = expansion(mult = c(0.02, 0.02))) +
-  scale_y_continuous(breaks = 0:max(sinasc_mes$n)) +
+  scale_x_continuous(breaks = CONFIG$anos) +
+  scale_y_continuous(breaks = 0:max(sinasc_ano$n)) +
   theme_bw() +
   theme(plot.title = element_text(face = "bold", hjust = 0.5),
         panel.grid.minor = element_blank())
 
-salvar_figura(fig_sinasc_temporal, "sinasc_casos_serie_temporal_mensal.png")
+salvar_figura(fig_sinasc_temporal, "sinasc_casos_por_ano.png")
 
 # -----------------------------------------------------------------------------
 # SINASC — sexo e raça/cor
@@ -108,6 +103,10 @@ salvar_figura(fig_sinasc_idade_mae, "sinasc_distribuicao_idade_materna.png")
 # -----------------------------------------------------------------------------
 # SIH — série temporal mensal de internações
 # -----------------------------------------------------------------------------
+grade_meses <- data.frame(
+  mes_ano = seq(as.Date("2020-01-01"), as.Date("2024-12-01"), by = "month")
+)
+
 sih_mes <- sih %>%
   count(mes_ano, name = "n") %>%
   right_join(grade_meses, by = "mes_ano") %>%
