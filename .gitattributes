@@ -1,0 +1,20 @@
+# =============================================================================
+# .gitattributes
+# Normaliza fim de linha e marca arquivos binários.
+# =============================================================================
+
+# Normaliza quebras de linha em arquivos de texto
+* text=auto
+
+# Arquivos binários (não aplicar conversão/diff de texto)
+*.rds binary
+*.png binary
+*.pak binary
+*.dll binary
+
+# Arquivos de código e documentação como texto UTF-8
+*.R   text eol=lf
+*.r   text eol=lf
+*.md  text eol=lf
+*.csv text eol=lf
+*.json text eol=lf

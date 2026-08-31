@@ -1,0 +1,26 @@
+{
+  "projeto": "SINASC RJ Campos dos Goytacazes Q20-Q28 2020-2024",
+  "base": "SINASC/DATASUS",
+  "pacote": "microdatasus",
+  "uf": "RJ",
+  "periodo": "2020-2024",
+  "criterios": {
+    "municipio_residencia_codigo": "330100",
+    "criterio_municipio": "CODMUNRES",
+    "criterio_anomalia": "IDANOMAL em {'1', 'Sim'}",
+    "criterio_diagnostico": "CODANOMAL contém código Q20-Q28 (qualquer posição)",
+    "colunas_originais_preservadas": true
+  },
+  "n_total": 28,
+  "tempo_total_segundos": 17.2,
+  "checksums_sha256": {
+    "rds": "00f042abe9492b1e69f6a91e0ea44fa740ce476fcf6bec3990e87b904032d559",
+    "csv": "8346d99b1dab07b05464b8c4dbb434d9c63f510513a758efe3fe12dbb4f0faf9",
+    "auditoria": "47686d52c8151b835f00a315ad56826118581ea65302456e8797ab797911d4e1"
+  },
+  "versoes_pacotes": ["2.5.0", "1.1.4", "1.1.0", "1.5.2", "2.1.5", "0.6.37", "2.0.0", "3.3.0"],
+  "r_version": "R version 4.5.3 (2026-03-11 ucrt)",
+  "plataforma": "x86_64-w64-mingw32",
+  "session_info": ["R version 4.5.3 (2026-03-11 ucrt)", "Platform: x86_64-w64-mingw32/x64", "Running under: Windows 11 x64 (build 26200)", "", "Matrix products: default", "  LAPACK version 3.12.1", "", "locale:", "[1] LC_COLLATE=Portuguese_Brazil.utf8  LC_CTYPE=Portuguese_Brazil.utf8   ", "[3] LC_MONETARY=Portuguese_Brazil.utf8 LC_NUMERIC=C                      ", "[5] LC_TIME=Portuguese_Brazil.utf8    ", "", "time zone: America/Sao_Paulo", "tzcode source: internal", "", "attached base packages:", "[1] stats     graphics  grDevices utils     datasets  methods   base     ", "", "other attached packages:", "[1] tibble_3.3.0       jsonlite_2.0.0     digest_0.6.37      readr_2.1.5       ", "[5] stringr_1.5.2      purrr_1.1.0        dplyr_1.1.4        microdatasus_2.5.0", "", "loaded via a namespace (and not attached):", " [1] crayon_1.5.3      vctrs_0.6.5       cli_3.6.5         rlang_1.1.6      ", " [5] stringi_1.8.7     generics_0.1.4    data.table_1.17.8 glue_1.8.0       ", " [9] bit_4.6.0         hms_1.1.4         tzdb_0.5.0        lifecycle_1.0.5  ", "[13] compiler_4.5.3    pkgconfig_2.0.3   R6_2.6.1          tidyselect_1.2.1 ", "[17] vroom_1.6.6       pillar_1.11.1     parallel_4.5.3    magrittr_2.0.4   ", "[21] tools_4.5.3       bit64_4.6.0-1    "],
+  "data_execucao": "2026-08-31 15:55:32.521043"
+}

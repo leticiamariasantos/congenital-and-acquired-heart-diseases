@@ -1,0 +1,29 @@
+{
+  "projeto": "SIH-RD RJ Campos dos Goytacazes Q20-Q28 menor de 1 ano 2020-2024",
+  "base": "SIH-RD/DATASUS",
+  "pacote": "microdatasus",
+  "uf": "RJ",
+  "periodo": "2020-2024",
+  "criterios": {
+    "municipio_residencia_codigo": "330100",
+    "criterio_municipio": "MUNIC_RES",
+    "criterio_diagnostico": "DIAG_PRINC Q20-Q28 (diagnóstico principal)",
+    "criterio_idade": "idade_dias_estimado >= 0 e < 365 (Neonato 0-28; Lactente 29-364)",
+    "colunas_originais_preservadas": true,
+    "colunas_removidas_privacidade": ["CPF_AUT", "GESTOR_CPF", "GESTOR_DT", "IDENT", "N_AIH"]
+  },
+  "n_total": 55,
+  "tempo_total_segundos": 149.18,
+  "checksums_sha256": {
+    "rds": "cb1962685d4b573e53f872b4846fdd28979d61886aeb107d46e5d28dbd5587b1",
+    "csv": "bf1224cdd4fbd96b50edc49b3dc11fb54180cf8faf85e5b5b871e7596a8a9848",
+    "auditoria": "ed6c4a8d34bcccaa8e4b42370c7af416f8ef814b80f4f3f398cedae102acbdf7"
+  },
+  "versoes_pacotes": ["2.5.0", "1.1.4", "1.1.0", "1.5.2", "1.9.4", "2.1.5", "0.6.37", "2.0.0", "3.3.0"],
+  "r_version": "R version 4.5.3 (2026-03-11 ucrt)",
+  "plataforma": "x86_64-w64-mingw32",
+  "session_info": ["R version 4.5.3 (2026-03-11 ucrt)", "Platform: x86_64-w64-mingw32/x64", "Running under: Windows 11 x64 (build 26200)", "", "Matrix products: default", "  LAPACK version 3.12.1", "", "locale:", "[1] LC_COLLATE=Portuguese_Brazil.utf8  LC_CTYPE=Portuguese_Brazil.utf8   ", "[3] LC_MONETARY=Portuguese_Brazil.utf8 LC_NUMERIC=C                      ", "[5] LC_TIME=Portuguese_Brazil.utf8    ", "", "time zone: America/Sao_Paulo", "tzcode source: internal", "", "attached base packages:", "[1] stats     graphics  grDevices utils     datasets  methods   base     ", "", "other attached packages:", "[1] tibble_3.3.0       jsonlite_2.0.0     digest_0.6.37      readr_2.1.5       ", "[5] lubridate_1.9.4    stringr_1.5.2      purrr_1.1.0        dplyr_1.1.4       ", "[9] microdatasus_2.5.0", "", "loaded via a namespace (and not attached):", " [1] crayon_1.5.3      vctrs_0.6.5       cli_3.6.5         rlang_1.1.6      ", " [5] stringi_1.8.7     generics_0.1.4    data.table_1.17.8 bit_4.6.0        ", " [9] glue_1.8.0        hms_1.1.4         tzdb_0.5.0        lifecycle_1.0.5  ", "[13] compiler_4.5.3    timechange_0.3.0  pkgconfig_2.0.3   R6_2.6.1         ", "[17] tidyselect_1.2.1  parallel_4.5.3    vroom_1.6.6       pillar_1.11.1    ", "[21] magrittr_2.0.4    tools_4.5.3       withr_3.0.2       bit64_4.6.0-1    "],
+  "data_execucao": "2026-08-31 15:58:03.519792",
+  "n_neonato": 11,
+  "n_lactente": 44
+}
