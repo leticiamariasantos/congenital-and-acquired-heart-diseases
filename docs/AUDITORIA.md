@@ -3,6 +3,15 @@
 Auditoria técnica do repositório **Cardiopatias Congênitas e Adquiridas**,
 realizada antes da publicação no GitHub.
 
+> **Transparência sobre o uso de IA:** esta auditoria e a refatoração dos
+> scripts foram realizadas com apoio técnico da ferramenta de Inteligência
+> Artificial Generativa **DeepSeek (modelo `deepseek-v4-pro`)**, utilizada como
+> assistente de programação e edição de texto. O uso está declarado em
+> conformidade com a **Portaria CNPq nº 2.664/2026** (art. 9º, I, "c"), na
+> seção *"Declaração de uso de Inteligência Artificial Generativa"* do
+> `README.md`. Nenhum dado foi gerado por IA e todos os resultados foram
+> revisados e validados manualmente.
+
 ---
 
 ## 1. Problemas encontrados (por gravidade)

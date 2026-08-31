@@ -248,23 +248,61 @@ Rscript tests/test_utils.R
 
 ---
 
-## Declaração de uso de Inteligência Artificial (Portaria CNPq nº 2.664/2026)
+## Declaração de uso de Inteligência Artificial Generativa (Portaria CNPq nº 2.664/2026)
 
-Em conformidade com a Portaria CNPq nº 2.664/2026, declaramos que:
+Em conformidade com a **Portaria CNPq nº 2.664, de 6 de março de 2026**, que
+institui a Política de Integridade na Atividade Científica do CNPq, e, em
+especial, com o **art. 9º, inciso I, alíneas "c" e "d"** — que determinam
+*"declarar o uso de ferramentas de Inteligência Artificial Generativa (IAG),
+de qualquer espécie e em qualquer fase do desenvolvimento da pesquisa
+(concepção, redação, análise de dados, submissão), especificando nos
+respectivos textos e exposições eletrônicas a ferramenta utilizada e a
+finalidade"* e que *"é vedada a submissão de conteúdo gerado por IAG como se
+fosse de autoria humana, sendo os autores integralmente responsáveis pelo
+conteúdo final"* —, declaramos:
 
-1. **Ferramentas de IA generativa** (assistentes de programação e de edição de
-   texto baseados em modelos de linguagem) foram utilizadas como **apoio
-   técnico** nas seguintes etapas:
-   - auditoria, refatoração e documentação do código;
-   - elaboração de tabelas, gráficos e textos de suporte.
-2. **Nenhum dado foi gerado por IA.** Todos os dados analisados provêm de
+### Ferramenta utilizada
+
+| Ferramenta (IAG) | Modelo | Fornecedor |
+|------------------|--------|------------|
+| DeepSeek — assistente de programação e edição de texto | **deepseek-v4-pro** | DeepSeek |
+
+### Finalidade e etapas de uso
+
+A ferramenta de IAG **deepseek-v4-pro** foi utilizada **exclusivamente como
+apoio técnico** de programação e edição de texto, nas seguintes etapas e
+finalidades:
+
+1. **Refatoração dos scripts de auditoria** — revisão e reescrita dos scripts
+   de extração e processamento (`src/`), da trilha de auditoria por linha
+   (`audit_row_id`, `audit_hash_linha` e colunas `audit_*`) e da geração dos
+   arquivos de auditoria e metadados (`results/auditoria/`), conforme
+   relatado em [`docs/AUDITORIA.md`](docs/AUDITORIA.md).
+2. **Auditoria e correção de código** — identificação e correção de bugs
+   (ex.: ancoragem incorreta do CID Q20–Q28, fallback inoperante de
+   `COD_IDADE`, normalização de `CID`), com impacto documentado nos
+   resultados (22 → 28 casos SINASC recuperados).
+3. **Documentação** — elaboração de `README.md`, `docs/AUDITORIA.md` e
+   `docs/METODOLOGIA.md`.
+4. **Elaboração de tabelas, gráficos e textos de suporte** na análise
+   exploratória.
+
+### Limites e responsabilidades
+
+1. **Nenhum dado foi gerado por IA.** Todos os dados analisados provêm de
    fontes públicas (DATASUS e INMET) e foram processados por código aberto e
-   verificável.
+   verificável, sem uso de IAG para fabricação, falsificação ou manipulação de
+   dados.
+2. **Nenhum conteúdo gerado por IAG foi submetido como se fosse de autoria
+   humana** (art. 9º, I, "d"). Todo texto e código produzidos com apoio da
+   ferramenta foram revisados, validados e ajustados pelas autoras.
 3. A **interpretação científica**, a **definição metodológica**, a **validação
    dos resultados** e a **revisão crítica** são de responsabilidade exclusiva
    da autora e da orientadora.
-4. Todos os resultados apresentados foram **revisados e validados**
-   manualmente antes da publicação.
+4. As autoras são **integralmente responsáveis pelo conteúdo final**,
+   inclusive por eventuais plágios ou imprecisões geradas pela IAG, tendo os
+   resultados apresentados sido **revisados e validados manualmente** antes da
+   publicação.
 
 ---
 
