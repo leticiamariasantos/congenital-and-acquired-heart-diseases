@@ -64,8 +64,7 @@ sinasc_mes <- sinasc %>%
   replace_na(list(n = 0L))
 
 fig_sinasc_temporal <- ggplot(sinasc_mes, aes(x = mes_ano, y = n)) +
-  geom_line(color = cor_bordo, linewidth = 1) +
-  geom_point(color = cor_bordo, size = 2.2) +
+  geom_col(fill = cor_bordo, width = 25) +
   labs(
     title = "Casos de cardiopatia congênita (Q20-Q28) — SINASC",
     subtitle = "Campos dos Goytacazes (RJ), 2020–2024",
