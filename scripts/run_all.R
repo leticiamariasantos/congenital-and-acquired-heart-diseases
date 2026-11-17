@@ -29,6 +29,7 @@ scripts <- c(
   "04_tendencia_sazonalidade.R",
   "05_generate_results_text.R",
   "06_etapa1_2020_2024.R",
+  "08_etapa1_2010_2024.R",
   "07_panorama_2010_2024.R"
 )
 

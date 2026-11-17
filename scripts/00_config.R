@@ -62,6 +62,7 @@ CONFIG <- list(
     tabelas          = "results/tables",
     figuras          = "results/figures",
     figuras_2020_2024 = "results/figures_2020_2024",
+    figuras_2010_2024 = "results/figures_2010_2024",
     texto            = "results/text"
   ),
 
@@ -113,6 +114,27 @@ CONFIG <- list(
     razoes_mensais       = "results/tables/razoes_internacao_mensais_2020_2024.csv",
     testes_tendencia     = "results/tables/testes_tendencia_2020_2024.csv",
     testes_sazonalidade  = "results/tables/testes_sazonalidade_2020_2024.csv"
+  ),
+
+  # --- Série completa 2010–2024 (análise principal) ---------------------
+  arquivos_2010_2024 = list(
+    internacoes_q20q26  = "data/processed/internacoes_q20q26_campos_2010_2024.csv",
+    internacoes_q20q28  = "data/processed/internacoes_q20q28_campos_2010_2024.csv",
+    nascidos_malformacao_q20q26 = "data/processed/nascidos_malformacao_q20q26_campos_2010_2024.csv",
+    nascidos_malformacao_q20q28 = "data/processed/nascidos_malformacao_q20q28_campos_2010_2024.csv",
+    nascidos_totais     = "data/processed/nascidos_totais_campos_2010_2024.csv",
+    temp_umidade_mensal = "data/processed/temp_umidade_mensal_A607_2010_2024.csv",
+    pm25_mensal         = "data/processed/pm25_mensal_campos_2010_2024.csv"
+  ),
+
+  tabelas_2010_2024 = list(
+    prevalencias_anuais  = "results/tables/prevalencias_anuais_2010_2024.csv",
+    prevalencias_mensais = "results/tables/prevalencias_mensais_2010_2024.csv",
+    razoes_anuais        = "results/tables/razoes_internacao_anuais_2010_2024.csv",
+    razoes_mensais       = "results/tables/razoes_internacao_mensais_2010_2024.csv",
+    testes_tendencia     = "results/tables/testes_tendencia_2010_2024.csv",
+    testes_sazonalidade  = "results/tables/testes_sazonalidade_2010_2024.csv",
+    texto                = "results/text/resultados_discussao_2010_2024.md"
   ),
 
   # --- Panorama consolidado 2010–2024 ------------------------------------
