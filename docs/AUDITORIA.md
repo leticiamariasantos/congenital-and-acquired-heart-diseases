@@ -82,7 +82,7 @@ realizada antes da publicação no GitHub.
    `data/README.md`, `requirements.R`, `LICENSE` (MIT), `.gitignore`.
 7. **Análise exploratória** reescrita em `analysis/01_analise_exploratoria.R`
    (substitui os gráficos soltos do `.Rhistory`), gerando 6 figuras e o
-   `results/resumo_anual_casos.csv`.
+   `results/tabelas/resumo_anual_casos.csv`.
 8. **Testes** básicos em `tests/test_utils.R`.
 
 ---

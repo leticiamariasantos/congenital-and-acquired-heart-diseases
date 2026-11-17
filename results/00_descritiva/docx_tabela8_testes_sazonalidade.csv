@@ -1,0 +1,7 @@
+Desfecho,Teste,Estatística,gl,p-valor
+SINASC,Qui-quadrado (uniformidade entre meses),"11,43",11,"0,408"
+SINASC,Kruskal-Wallis (taxas por mês),"12,94",11,"0,297"
+SINASC,"Razão de verossimilhança (Poisson, efeito de mês)","14,94",11,"0,185"
+SIH-RD,Qui-quadrado (uniformidade entre meses),"13,73",11,"0,248"
+SIH-RD,Kruskal-Wallis (taxas por mês),"21,51",11,"0,028"
+SIH-RD,"Razão de verossimilhança (Poisson, efeito de mês)","17,70",11,"0,089"

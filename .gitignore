@@ -18,6 +18,7 @@ data/cache/
 
 # --- Saídas intermediárias do R ------------------------------------------
 Rplots*.png
+Rplots*.pdf
 
 # --- Sistema operacional --------------------------------------------------
 .DS_Store

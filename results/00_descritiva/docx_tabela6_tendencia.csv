@@ -1,0 +1,5 @@
+Desfecho,Nível,Teste,tau,S,p-valor
+SINASC,anual,Mann-Kendall,"0,53",5,"0,312"
+SIH-RD,anual,Mann-Kendall,"0,11",1,"1,000"
+SINASC,mensal (sazonal),Mann-Kendall sazonal (Hirsch-Slack),—,11,"0,343"
+SIH-RD,mensal (sazonal),Mann-Kendall sazonal (Hirsch-Slack),—,1,"1,000"

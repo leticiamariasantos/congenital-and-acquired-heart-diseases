@@ -79,3 +79,44 @@ montar_metadados <- function(projeto, base, uf, periodo, criterios, n_total,
     data_execucao = as.character(Sys.time())
   )
 }
+
+# =============================================================================
+# Estilo de figuras — layout Cell Press + paleta viridis
+# =============================================================================
+# Princípios: fundo branco, sem grades, eixos pretos finos (formato "L"),
+# tipografia sans-serif com títulos de eixo em negrito e tiras de facet em
+# negrito. As cores usam a paleta viridis (perceptualmente uniforme e segura
+# para daltonismo).
+cor_destaque <- viridisLite::viridis(3)[2]  # verde-azulado (meio da viridis)
+
+# Tema Cell Press
+theme_cellpress <- function(base_size = 8, base_family = "sans") {
+  ggplot2::theme_bw(base_size = base_size, base_family = base_family) +
+    ggplot2::theme(
+      panel.background = ggplot2::element_rect(fill = "white", color = NA),
+      panel.grid       = ggplot2::element_blank(),
+      panel.border     = ggplot2::element_blank(),
+      axis.line        = ggplot2::element_line(color = "black", linewidth = 0.4),
+      axis.ticks       = ggplot2::element_line(color = "black", linewidth = 0.4),
+      axis.ticks.length = ggplot2::unit(0.08, "cm"),
+      axis.text        = ggplot2::element_text(color = "black", size = base_size),
+      axis.title       = ggplot2::element_text(color = "black", face = "bold"),
+      plot.title       = ggplot2::element_text(face = "bold", hjust = 0,
+                                               size = base_size + 2, color = "black"),
+      plot.subtitle    = ggplot2::element_text(hjust = 0, color = "grey25",
+                                               size = base_size),
+      plot.caption     = ggplot2::element_text(hjust = 0, color = "grey35"),
+      strip.background = ggplot2::element_blank(),
+      strip.text       = ggplot2::element_text(face = "bold", hjust = 0,
+                                               size = base_size, color = "black"),
+      legend.key       = ggplot2::element_blank(),
+      legend.background = ggplot2::element_blank(),
+      legend.title     = ggplot2::element_text(face = "bold", size = base_size),
+      legend.text      = ggplot2::element_text(size = base_size),
+      plot.margin      = ggplot2::margin(6, 8, 6, 6)
+    )
+}
+
+# Escalas de cor viridis (discretas e contínuas)
+escala_cor_viridis  <- function(...) ggplot2::scale_color_viridis_d(option = "viridis", ...)
+escala_fill_viridis <- function(...) ggplot2::scale_fill_viridis_d(option = "viridis", ...)

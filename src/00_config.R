@@ -18,12 +18,23 @@ CONFIG <- list(
 
   # Diretórios do repositório (caminhos relativos à raiz do projeto)
   dirs = list(
-    cache_raw       = "data/cache/raw",
+    cache_raw        = "data/cache/raw",
     cache_processado = "data/cache/processed",
-    dados           = "data/processed",
-    resultados      = "results",
-    auditoria       = "results/auditoria",
-    figuras         = "results/figures"
+    dados            = "data/processed",
+    raw_vigiar       = "data/raw/vigiar",
+    resultados       = "results",
+    # Uma pasta por modelo/etapa estatística (ver analysis/)
+    descritiva        = "results/00_descritiva",
+    mann_kendall      = "results/01_mann_kendall",
+    spearman          = "results/02_spearman",
+    poisson           = "results/03_poisson",
+    quasi_poisson     = "results/04_quasi_poisson",
+    binomial_negativa = "results/05_binomial_negativa",
+    poisson_lags      = "results/06_poisson_lags",
+    dlnm              = "results/07_dlnm",
+    poisson_ajustado  = "results/08_poisson_ajustado",
+    sensibilidade     = "results/09_sensibilidade_extremos",
+    auditoria         = "results/auditoria"
   ),
 
   # Critérios científicos (ver docs/METODOLOGIA.md)
@@ -52,11 +63,11 @@ CONFIG <- list(
   # Nomes de arquivos de saída
   arquivos = list(
     sinasc_rds = "data/processed/sinasc_rj_campos_q20_q28_2020_2024_completo.rds",
-    sinasc_csv = "results/sinasc_rj_campos_q20_q28_2020_2024_completo.csv",
+    sinasc_csv = "results/00_descritiva/sinasc_rj_campos_q20_q28_2020_2024_completo.csv",
     sinasc_auditoria = "results/auditoria/auditoria_anual_sinasc_rj_campos_q20_q28_2020_2024.csv",
     sinasc_metadados = "results/auditoria/metadados_sinasc_rj_campos_q20_q28_2020_2024.json",
     sih_rds = "data/processed/sih_rd_rj_campos_q20_q28_menor_1ano_2020_2024_completo.rds",
-    sih_csv = "results/sih_rd_rj_campos_q20_q28_menor_1ano_2020_2024_completo.csv",
+    sih_csv = "results/00_descritiva/sih_rd_rj_campos_q20_q28_menor_1ano_2020_2024_completo.csv",
     sih_auditoria = "results/auditoria/auditoria_mensal_sih_rd_rj_campos_q20_q28_2020_2024.csv",
     sih_metadados = "results/auditoria/metadados_sih_rd_rj_campos_q20_q28_2020_2024.json"
   )

@@ -1,0 +1,7 @@
+desfecho,teste,estatistica,gl,p_valor
+SINASC (nascidos vivos Q20-Q28),Qui-quadrado (uniformidade entre meses),11.42857142857143,11,0.4080881262850739
+SINASC (nascidos vivos Q20-Q28),Kruskal-Wallis (taxas por mês),12.938873994638088,11,0.2973393565052607
+SINASC (nascidos vivos Q20-Q28),"Razão de verossimilhança (Poisson, efeito de mês)",14.93527136074038,11,0.1854794598058736
+SIH-RD (internações Q20-Q28 <1 ano),Qui-quadrado (uniformidade entre meses),13.727272727272728,11,0.24845362194207207
+SIH-RD (internações Q20-Q28 <1 ano),Kruskal-Wallis (taxas por mês),21.51027071954405,11,0.028453865690494285
+SIH-RD (internações Q20-Q28 <1 ano),"Razão de verossimilhança (Poisson, efeito de mês)",17.700163733710056,11,0.08880372544239423

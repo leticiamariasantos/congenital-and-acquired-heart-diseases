@@ -1,0 +1,16 @@
+variavel_1,variavel_2,rho,p_valor,n,significativo
+Precipitação total (mm),Umidade relativa (%),0.6626285079188664,8.062580159062804e-9,60,Sim
+Temperatura média (°C),Precipitação total (mm),0.336926924145596,0.008478957686993693,60,Sim
+Temperatura média (°C),PM2.5 (µg/m³),-0.2844440739934687,0.027618460064578798,60,Sim
+Internações SIH-RD (<1 ano),PM2.5 (µg/m³),0.21698982856711577,0.09584375930796418,60,Não
+Casos SINASC (Q20-Q28),Temperatura média (°C),0.11527378230704984,0.380458154938103,60,Não
+Internações SIH-RD (<1 ano),Umidade relativa (%),-0.10138763255662035,0.44081715449234826,60,Não
+Casos SINASC (Q20-Q28),Precipitação total (mm),-0.0840338269643019,0.5232386935940001,60,Não
+Casos SINASC (Q20-Q28),Umidade relativa (%),-0.08155446542916317,0.5356116702661302,60,Não
+Internações SIH-RD (<1 ano),Temperatura média (°C),0.045971530130727356,0.7272487457234846,60,Não
+Casos SINASC (Q20-Q28),PM2.5 (µg/m³),-0.0454390636784879,0.7302871473432953,60,Não
+Casos SINASC (Q20-Q28),Internações SIH-RD (<1 ano),-0.04462818305157617,0.7349221733198739,60,Não
+Precipitação total (mm),PM2.5 (µg/m³),0.03967823949034613,0.7634148519413289,60,Não
+Internações SIH-RD (<1 ano),Precipitação total (mm),0.03238564695534714,0.8059566707119163,60,Não
+Temperatura média (°C),Umidade relativa (%),-0.02117254792998055,0.8724322017075257,60,Não
+Umidade relativa (%),PM2.5 (µg/m³),0.0032787340755328033,0.9801644241401362,60,Não

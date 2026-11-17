@@ -1,0 +1,9 @@
+indicador,conjunto,escala,teste,S,tau,z,p_valor,interpretacao,n
+Prevalência (SINASC),Q20-Q26 (principal),Anual,Mann-Kendall,15,0.33333333333333326,1.2521980673998823,0.2104977000553374,"Sem tendência significativa (p >= 0,05)",10
+Razão de internação (SIH),Q20-Q26 (principal),Anual,Mann-Kendall,-1,-0.02222222222222222,-0,1,"Sem tendência significativa (p >= 0,05)",10
+Prevalência (SINASC),Q20-Q26 (principal),Mensal,Seasonal Mann-Kendall (Hirsch-Slack),43,,1.5721775270474427,0.1159093857346137,"Sem tendência significativa (p >= 0,05)",120
+Razão de internação (SIH),Q20-Q26 (principal),Mensal,Seasonal Mann-Kendall (Hirsch-Slack),-56,,-1.538900591758688,0.12382856669726339,"Sem tendência significativa (p >= 0,05)",120
+Prevalência (SINASC),Q20-Q28 (sensibilidade),Anual,Mann-Kendall,15,0.33333333333333326,1.2521980673998823,0.2104977000553374,"Sem tendência significativa (p >= 0,05)",10
+Razão de internação (SIH),Q20-Q28 (sensibilidade),Anual,Mann-Kendall,-3,-0.06666666666666665,-0.17888543819998318,0.8580276569875211,"Sem tendência significativa (p >= 0,05)",10
+Prevalência (SINASC),Q20-Q28 (sensibilidade),Mensal,Seasonal Mann-Kendall (Hirsch-Slack),44,,1.5529775048064227,0.12042850888279177,"Sem tendência significativa (p >= 0,05)",120
+Razão de internação (SIH),Q20-Q28 (sensibilidade),Mensal,Seasonal Mann-Kendall (Hirsch-Slack),-60,,-1.615377750670511,0.10622891546338724,"Sem tendência significativa (p >= 0,05)",120

@@ -1,0 +1,7 @@
+Code,Ano,comb_sol,pop_exposta,percent_comb,cor_comb,cor_pop,Quartis,CV,cor_CV
+33,2016,0.011,121496,1.0999999999999999,0-5,Entre mínimo e Q1,"Q1: 212610, Q2: 341472, Q3: 1266156",11.6,Estimativa confiável
+33,2017,0.014,156258,1.4000000000000001,0-5,Entre mínimo e Q1,"Q1: 222035,5, Q2: 396117, Q3: 1357034,5",11.2,Estimativa confiável
+33,2018,0.02,225508,2,0-5,Entre mínimo e Q1,"Q1: 278533, Q2: 637216, Q3: 1540516,5",10.2,Estimativa confiável
+33,2019,0.021,239222,2.1,0-5,Entre mínimo e Q1,"Q1: 256944, Q2: 563919, Q3: 1515808,5",10.8,Estimativa confiável
+33,2022,0.005,58337,0.5,0-5,Entre mínimo e Q1,"Q1: 61682,5, Q2: 103002, Q3: 510641",23.7,Estimativa imprecisa
+33,2023,0.0035,41199,0.35000000000000003,0-5,Entre mínimo e Q1,"Q1: 48700,5, Q2: 87986, Q3: 455753",19.05,Estimativa imprecisa

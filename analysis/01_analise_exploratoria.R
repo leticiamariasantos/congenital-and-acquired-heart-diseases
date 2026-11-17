@@ -8,7 +8,7 @@
 #
 # Saídas:
 #   results/figures/*.png
-#   results/resumo_anual_casos.csv
+#   results/tabelas/*.csv
 # =============================================================================
 
 options(stringsAsFactors = FALSE)
@@ -44,10 +44,11 @@ sih <- sih %>%
     mes_ano = as.Date(sprintf("%04d-%02d-01", as.integer(ANO_CMPT), as.integer(MES_CMPT)))
   )
 
-cor_bordo <- "#800020"  # cor institucional usada nas figuras
+cor_bordo <- cor_destaque  # cor de destaque (viridis)
 
-salvar_figura <- function(plot, nome, largura = 8, altura = 5) {
-  ggsave(file.path(CONFIG$dirs$figuras, nome), plot = plot,
+salvar_figura <- function(plot, nome, dir = CONFIG$dirs$descritiva,
+                          largura = 8, altura = 5) {
+  ggsave(file.path(dir, nome), plot = plot,
          width = largura, height = altura, dpi = 300)
   invisible(plot)
 }
@@ -69,7 +70,7 @@ fig_sinasc_temporal <- ggplot(sinasc_ano, aes(x = ano, y = n)) +
   ) +
   scale_x_continuous(breaks = CONFIG$anos) +
   scale_y_continuous(breaks = 0:max(sinasc_ano$n)) +
-  theme_bw() +
+  theme_cellpress() +
   theme(plot.title = element_text(face = "bold", hjust = 0.5),
         panel.grid.minor = element_blank())
 
@@ -84,7 +85,7 @@ fig_sinasc_sexo_raca <- sinasc %>%
   geom_col(position = "dodge") +
   labs(title = "Casos por raça/cor e sexo (SINASC)",
        x = "Raça/cor", y = "Número de casos", fill = "Sexo") +
-  theme_bw() +
+  theme_cellpress() +
   theme(plot.title = element_text(face = "bold", hjust = 0.5))
 
 salvar_figura(fig_sinasc_sexo_raca, "sinasc_casos_por_raca_sexo.png")
@@ -96,7 +97,7 @@ fig_sinasc_idade_mae <- ggplot(sinasc, aes(x = IDADEMAE)) +
   geom_histogram(binwidth = 2, fill = cor_bordo, color = "white") +
   labs(title = "Distribuição da idade materna (SINASC)",
        x = "Idade materna (anos)", y = "Frequência") +
-  theme_bw() +
+  theme_cellpress() +
   theme(plot.title = element_text(face = "bold", hjust = 0.5))
 
 salvar_figura(fig_sinasc_idade_mae, "sinasc_distribuicao_idade_materna.png")
@@ -123,7 +124,7 @@ fig_sih_temporal <- ggplot(sih_mes, aes(x = mes_ano, y = n)) +
   ) +
   scale_x_date(date_breaks = "1 year", date_labels = "%Y",
                expand = expansion(mult = c(0.02, 0.02))) +
-  theme_bw() +
+  theme_cellpress() +
   theme(plot.title = element_text(face = "bold", hjust = 0.5),
         panel.grid.minor = element_blank())
 
@@ -139,8 +140,8 @@ fig_sih_classe <- sih %>%
   geom_text(aes(label = n), vjust = -0.3) +
   labs(title = "Internações por faixa etária (SIH-RD)",
        x = "Faixa etária", y = "Número de internações") +
-  scale_fill_manual(values = c("Neonato" = "#800020", "Lactente" = "#b3566b")) +
-  theme_bw() +
+  scale_fill_viridis_d(end = 0.75) +
+  theme_cellpress() +
   theme(plot.title = element_text(face = "bold", hjust = 0.5),
         legend.position = "none")
 
@@ -156,8 +157,8 @@ fig_sih_custo <- sih %>%
   scale_y_continuous(labels = scales::label_number(scale = 1e-3, suffix = " mil")) +
   labs(title = "Custo total da internação por faixa etária (SIH-RD)",
        x = "Faixa etária", y = "Valor total (R$)") +
-  scale_fill_manual(values = c("Neonato" = "#800020", "Lactente" = "#b3566b")) +
-  theme_bw() +
+  scale_fill_viridis_d(end = 0.75) +
+  theme_cellpress() +
   theme(plot.title = element_text(face = "bold", hjust = 0.5),
         legend.position = "none")
 
@@ -174,7 +175,7 @@ resumo_anual <- full_join(
 ) %>%
   replace_na(list(nascidos_vivos_q20_q28 = 0L, internacoes_q20_q28_menor_1ano = 0L))
 
-readr::write_csv(resumo_anual, "results/resumo_anual_casos.csv", na = "")
+readr::write_csv(resumo_anual, file.path(CONFIG$dirs$descritiva, "resumo_anual_casos.csv"), na = "")
 
 # -----------------------------------------------------------------------------
 # Resumo por código CID-10 Q20-Q28 (SINASC + SIH-RD)
@@ -195,7 +196,7 @@ resumo_cid <- dplyr::full_join(
   dplyr::mutate(total = sinasc_n + sih_n) %>%
   dplyr::arrange(dplyr::desc(total), cid)
 
-readr::write_csv(resumo_cid, "results/resumo_cid_q20_q28.csv", na = "")
+readr::write_csv(resumo_cid, file.path(CONFIG$dirs$descritiva, "resumo_cid_q20_q28.csv"), na = "")
 
 # Figura: distribuição dos casos por código CID-10 (top 15)
 resumo_cid_top <- resumo_cid %>% dplyr::slice_max(total, n = 15)
@@ -211,8 +212,8 @@ fig_cid <- ggplot(resumo_cid_long, aes(x = cid, y = n, fill = fonte)) +
   labs(title = "Distribuição dos casos por código CID-10 (top 15)",
        subtitle = "Q20-Q28 — Campos dos Goytacazes (RJ), 2020–2024",
        x = "Código CID-10", y = "Número de casos", fill = "Fonte") +
-  scale_fill_manual(values = c("SINASC" = "#800020", "SIH-RD" = "#b3566b")) +
-  theme_bw() +
+  scale_fill_viridis_d(end = 0.75) +
+  theme_cellpress() +
   theme(plot.title = element_text(face = "bold", hjust = 0.5),
         axis.text.x = element_text(angle = 45, hjust = 1))
 
@@ -225,7 +226,7 @@ resumo_perfil_sinasc <- sinasc %>%
   dplyr::count(SEXO, RACACOR, name = "n") %>%
   dplyr::arrange(dplyr::desc(n))
 readr::write_csv(resumo_perfil_sinasc,
-                 "results/resumo_perfil_sinasc_sexo_raca.csv", na = "")
+                 file.path(CONFIG$dirs$descritiva, "resumo_perfil_sinasc_sexo_raca.csv"), na = "")
 
 sih_perfil <- sih %>%
   dplyr::mutate(
@@ -246,10 +247,10 @@ resumo_perfil_sih <- sih_perfil %>%
     custo_total = sum(VAL_TOT, na.rm = TRUE),
     permanencia_mediana = stats::median(DIAS_PERM, na.rm = TRUE)
   )
-readr::write_csv(resumo_perfil_sih, "results/resumo_perfil_sih.csv", na = "")
+readr::write_csv(resumo_perfil_sih, file.path(CONFIG$dirs$descritiva, "resumo_perfil_sih.csv"), na = "")
 
 cat("\n========== ANÁLISE EXPLORATÓRIA — FINAL ==========\n")
-cat("Figuras geradas em:", CONFIG$dirs$figuras, "\n")
-cat("Resumo anual:", normalizePath("results/resumo_anual_casos.csv", winslash = "/"), "\n")
-cat("Resumo CID:", normalizePath("results/resumo_cid_q20_q28.csv", winslash = "/"), "\n")
+cat("Figuras geradas em:", CONFIG$dirs$descritiva, "\n")
+cat("Resumo anual:", normalizePath(file.path(CONFIG$dirs$descritiva, "resumo_anual_casos.csv"), winslash = "/"), "\n")
+cat("Resumo CID:", normalizePath(file.path(CONFIG$dirs$descritiva, "resumo_cid_q20_q28.csv"), winslash = "/"), "\n")
 print(resumo_anual)

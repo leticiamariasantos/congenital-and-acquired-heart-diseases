@@ -6,8 +6,9 @@ Este diretório contém os dados utilizados e gerados pelo projeto.
 
 ```
 data/
-├── raw/                 # Dados brutos de entrada (INMET)
-│   └── inmet/           # Estação meteorológica A607 — Campos dos Goytacazes (2020–2024)
+├── raw/                 # Dados brutos de entrada
+│   ├── inmet/           # Estação meteorológica A607 — Campos dos Goytacazes (2020–2024)
+│   └── vigiar/          # PM2.5 mensal do VIGIAR/MS — Campos dos Goytacazes (2010–2025)
 ├── processed/           # Tabelas finais extraídas (RDS), prontas para análise
 └── cache/               # Caches de download/processamento do DATASUS (NÃO versionado)
     ├── raw/             # Arquivos brutos baixados (SINASC e SIH-RD)
@@ -21,10 +22,12 @@ data/
 | DATASUS | SINASC (Nascidos Vivos) | 2020–2024 | RJ — residência em Campos dos Goytacazes (330100) |
 | DATASUS | SIH-RD (Internações) | 2020–2024 | RJ — residência em Campos dos Goytacazes (330100) |
 | INMET | Estação A607 | 2020–2024 | Campos dos Goytacazes (dados meteorológicos horários) |
+| VIGIAR/MS | Painel Vigilância em Saúde Ambiental | 2010–2025 | PM2.5 mensal por município (estimado por satélite/modelagem) |
 
 ## Versionamento
 
-- `data/raw/inmet/` e `data/processed/` **são versionados** (arquivos pequenos).
+- `data/raw/inmet/`, `data/raw/vigiar/` e `data/processed/` **são versionados**
+  (arquivos pequenos).
 - `data/cache/` **NÃO é versionado** (arquivos grandes, regeneráveis via
   `src/run_sinasc.R` e `src/run_sih.R`). Os caches evitam novos downloads do
   DATASUS, mas podem ser recriados a qualquer momento.
@@ -36,3 +39,12 @@ data/
   (ex.: CPF de gestor hospitalar no SIH-RD). Por isso, o pipeline remove as
   colunas `CPF_AUT`, `GESTOR_CPF`, `GESTOR_DT`, `IDENT` e `N_AIH` antes da
   publicação (ver `src/00_config.R` → `CONFIG$colunas_sensiveis_sih`).
+
+## Observações sobre os dados do VIGIAR (PM2.5)
+
+- Obtidos via pacote R [`vigiar`](https://github.com/santosry/vigiar), que lê o
+  painel público Power BI do VIGIAR (Vigilância em Saúde Ambiental, Ministério
+  da Saúde). O pacote **não é oficial** do Ministério da Saúde.
+- PM2.5 é **estimado por satélite/modelagem**, não medido em superfície.
+- O download usa filtro no servidor para contornar o limite de ~30 mil linhas
+  do endpoint (ver `src/run_vigiar.R`).

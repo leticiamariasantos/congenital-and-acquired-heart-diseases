@@ -1,0 +1,5 @@
+desfecho,nivel,teste,tau,S,p_valor,inclinacao_sen
+SINASC (nascidos vivos Q20-Q28),anual,Mann-Kendall,0.527046263217926,5,0.31221628189086914,0.5833333333333333
+SIH-RD (internações Q20-Q28 <1 ano),anual,Mann-Kendall,0.10540924966335297,1,1,0.375
+SINASC (nascidos vivos Q20-Q28),mensal (sazonal),Mann-Kendall sazonal (Hirsch-Slack),,11,0.3425402613358547,
+SIH-RD (internações Q20-Q28 <1 ano),mensal (sazonal),Mann-Kendall sazonal (Hirsch-Slack),,1,1,

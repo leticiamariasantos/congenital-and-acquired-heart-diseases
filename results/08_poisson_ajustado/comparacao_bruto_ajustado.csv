@@ -1,0 +1,25 @@
+Desfecho,Família,Exposição,Bruto — IRR (IC95%); p,Ajustado — IRR (IC95%); p,bruto_sig,ajust_sig
+SINASC (casos mensais Q20-Q28),Poisson,Temperatura,1.108 (0.880–1.412); 0.393,0.838 (0.486–1.440); 0.519,FALSE,FALSE
+SINASC (casos mensais Q20-Q28),Poisson,Precipitação,0.997 (0.989–1.004); 0.447,0.994 (0.984–1.004); 0.260,FALSE,FALSE
+SINASC (casos mensais Q20-Q28),Poisson,Umidade,0.993 (0.795–1.243); 0.954,1.009 (0.796–1.267); 0.937,FALSE,FALSE
+SINASC (casos mensais Q20-Q28),Poisson,"MP2,5",1.020 (0.793–1.279); 0.873,1.028 (0.763–1.363); 0.849,FALSE,FALSE
+SINASC (casos mensais Q20-Q28),Quasi-Poisson,Temperatura,1.108 (0.862–1.445); 0.437,0.838 (0.452–1.547); 0.571,FALSE,FALSE
+SINASC (casos mensais Q20-Q28),Quasi-Poisson,Precipitação,0.997 (0.989–1.005); 0.488,0.994 (0.983–1.005); 0.323,FALSE,FALSE
+SINASC (casos mensais Q20-Q28),Quasi-Poisson,Umidade,0.993 (0.779–1.268); 0.958,1.009 (0.771–1.305); 0.945,FALSE,FALSE
+SINASC (casos mensais Q20-Q28),Quasi-Poisson,"MP2,5",1.020 (0.774–1.304); 0.884,1.028 (0.732–1.414); 0.867,FALSE,FALSE
+SINASC (casos mensais Q20-Q28),Binomial Negativa,Temperatura,1.109 (0.867–1.434); 0.418,0.842 (0.475–1.486); 0.552,FALSE,FALSE
+SINASC (casos mensais Q20-Q28),Binomial Negativa,Precipitação,0.997 (0.989–1.005); 0.478,0.994 (0.984–1.004); 0.289,FALSE,FALSE
+SINASC (casos mensais Q20-Q28),Binomial Negativa,Umidade,0.993 (0.782–1.262); 0.955,1.010 (0.788–1.283); 0.939,FALSE,FALSE
+SINASC (casos mensais Q20-Q28),Binomial Negativa,"MP2,5",1.020 (0.775–1.314); 0.876,1.028 (0.748–1.390); 0.860,FALSE,FALSE
+SIH-RD (internações mensais Q20-Q28),Poisson,Temperatura,0.947 (0.811–1.109); 0.490,0.961 (0.659–1.408); 0.839,FALSE,FALSE
+SIH-RD (internações mensais Q20-Q28),Poisson,Precipitação,1.006 (1.002–1.010); 0.005,1.004 (0.998–1.010); 0.155,TRUE,FALSE
+SIH-RD (internações mensais Q20-Q28),Poisson,Umidade,0.836 (0.717–0.977); 0.022,0.873 (0.746–1.019); 0.088,TRUE,FALSE
+SIH-RD (internações mensais Q20-Q28),Poisson,"MP2,5",1.110 (0.938–1.304); 0.213,1.016 (0.831–1.235); 0.876,FALSE,FALSE
+SIH-RD (internações mensais Q20-Q28),Quasi-Poisson,Temperatura,0.947 (0.807–1.116); 0.508,0.961 (0.666–1.392); 0.835,FALSE,FALSE
+SIH-RD (internações mensais Q20-Q28),Quasi-Poisson,Precipitação,1.006 (1.001–1.010); 0.010,1.004 (0.999–1.010); 0.149,TRUE,FALSE
+SIH-RD (internações mensais Q20-Q28),Quasi-Poisson,Umidade,0.836 (0.713–0.982); 0.032,0.873 (0.749–1.014); 0.085,TRUE,FALSE
+SIH-RD (internações mensais Q20-Q28),Quasi-Poisson,"MP2,5",1.110 (0.932–1.311); 0.235,1.016 (0.836–1.228); 0.872,FALSE,FALSE
+SIH-RD (internações mensais Q20-Q28),Binomial Negativa,Temperatura,0.947 (0.811–1.109); 0.490,0.961 (0.659–1.408); 0.839,FALSE,FALSE
+SIH-RD (internações mensais Q20-Q28),Binomial Negativa,Precipitação,1.006 (1.002–1.010); 0.005,1.004 (0.998–1.010); 0.155,TRUE,FALSE
+SIH-RD (internações mensais Q20-Q28),Binomial Negativa,Umidade,0.836 (0.717–0.977); 0.023,0.873 (0.746–1.019); 0.088,TRUE,FALSE
+SIH-RD (internações mensais Q20-Q28),Binomial Negativa,"MP2,5",1.110 (0.938–1.304); 0.213,1.016 (0.831–1.235); 0.875,FALSE,FALSE
