@@ -61,6 +61,7 @@ CONFIG <- list(
     raw_vigiar       = "data/raw/vigiar",
     tabelas          = "results/tables",
     figuras          = "results/figures",
+    figuras_2020_2024 = "results/figures_2020_2024",
     texto            = "results/text"
   ),
 
@@ -86,13 +87,41 @@ CONFIG <- list(
   # ---------------------------------------------------------------------------
   tabelas = list(
     prevalencias_anuais       = "results/tables/prevalencias_anuais.csv",
-    prevalencias_trimestrais  = "results/tables/prevalencias_trimestrais.csv",
     prevalencias_mensais      = "results/tables/prevalencias_mensais.csv",
     razoes_anuais             = "results/tables/razoes_internacao_anuais.csv",
-    razoes_trimestrais        = "results/tables/razoes_internacao_trimestrais.csv",
     razoes_mensais            = "results/tables/razoes_internacao_mensais.csv",
     testes_tendencia          = "results/tables/testes_tendencia.csv",
     testes_sazonalidade       = "results/tables/testes_sazonalidade.csv"
+  ),
+
+  # --- Arquivos/tabelas do período 2020–2024 (Etapa 1 replicada) ---------
+  arquivos_2020_2024 = list(
+    internacoes_q20q26  = "data/processed/internacoes_q20q26_campos_2020_2024.csv",
+    internacoes_q20q28  = "data/processed/internacoes_q20q28_campos_2020_2024.csv",
+    nascidos_malformacao_q20q26 = "data/processed/nascidos_malformacao_q20q26_campos_2020_2024.csv",
+    nascidos_malformacao_q20q28 = "data/processed/nascidos_malformacao_q20q28_campos_2020_2024.csv",
+    nascidos_totais     = "data/processed/nascidos_totais_campos_2020_2024.csv",
+    temp_umidade_mensal = "data/processed/temp_umidade_mensal_A607_2020_2024.csv",
+    temp_umidade_exclusoes = "data/processed/temp_umidade_mensal_A607_2020_2024_exclusoes.csv",
+    pm25_mensal         = "data/processed/pm25_mensal_campos_2020_2024.csv"
+  ),
+
+  tabelas_2020_2024 = list(
+    prevalencias_anuais  = "results/tables/prevalencias_anuais_2020_2024.csv",
+    prevalencias_mensais = "results/tables/prevalencias_mensais_2020_2024.csv",
+    razoes_anuais        = "results/tables/razoes_internacao_anuais_2020_2024.csv",
+    razoes_mensais       = "results/tables/razoes_internacao_mensais_2020_2024.csv",
+    testes_tendencia     = "results/tables/testes_tendencia_2020_2024.csv",
+    testes_sazonalidade  = "results/tables/testes_sazonalidade_2020_2024.csv"
+  ),
+
+  # --- Panorama consolidado 2010–2024 ------------------------------------
+  panorama = list(
+    prevalencias_anuais  = "results/tables/panorama_prevalencias_anuais_2010_2024.csv",
+    prevalencias_mensais = "results/tables/panorama_prevalencias_mensais_2010_2024.csv",
+    razoes_anuais        = "results/tables/panorama_razoes_internacao_anuais_2010_2024.csv",
+    razoes_mensais       = "results/tables/panorama_razoes_internacao_mensais_2010_2024.csv",
+    texto                = "results/text/resultados_discussao_panorama_2010_2024.md"
   ),
 
   # Arquivo de texto para Resultados e Discussão (Etapa 1)

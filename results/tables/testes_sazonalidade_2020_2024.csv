@@ -1,0 +1,12 @@
+indicador,conjunto,teste,estatistica,df,p_valor,interpretacao
+Casos SINASC (malformações),Q20-Q26 (principal),Razão de verossimilhança (Poisson com/sem mês),12.892481299853323,11,0.30041086218658986,"Sem evidência de sazonalidade (p >= 0,05)"
+Internações SIH (< 1 ano),Q20-Q26 (principal),Razão de verossimilhança (Poisson com/sem mês),17.613549355512085,11,0.09099172391095987,"Sem evidência de sazonalidade (p >= 0,05)"
+Casos SINASC (malformações),Q20-Q26 (principal),Qui-quadrado (distribuição mensal),9.777876587394335,11,0.5504711942356607,"Sem evidência de sazonalidade (p >= 0,05)"
+Internações SIH (< 1 ano),Q20-Q26 (principal),Qui-quadrado (distribuição mensal),16.10291428352955,11,0.13735302543414094,"Sem evidência de sazonalidade (p >= 0,05)"
+Casos SINASC (malformações),Q20-Q28 (sensibilidade),Razão de verossimilhança (Poisson com/sem mês),14.93527136074038,11,0.1854794598058736,"Sem evidência de sazonalidade (p >= 0,05)"
+Internações SIH (< 1 ano),Q20-Q28 (sensibilidade),Razão de verossimilhança (Poisson com/sem mês),20.02351226958418,11,0.04501926454716819,"Evidência de sazonalidade (p < 0,05)"
+Casos SINASC (malformações),Q20-Q28 (sensibilidade),Qui-quadrado (distribuição mensal),11.445082104801466,11,0.40676334992380947,"Sem evidência de sazonalidade (p >= 0,05)"
+Internações SIH (< 1 ano),Q20-Q28 (sensibilidade),Qui-quadrado (distribuição mensal),18.259193140570282,11,0.07575801395704622,"Sem evidência de sazonalidade (p >= 0,05)"
+Temperatura (°C),Exposição,Kruskal-Wallis (variação entre meses),49.41704918032784,11,7.965483438874315e-7,"Evidência de sazonalidade (p < 0,05)"
+Umidade relativa (%),Exposição,Kruskal-Wallis (variação entre meses),9.685901639344223,11,0.558842150345181,"Sem evidência de sazonalidade (p >= 0,05)"
+"PM2,5 (µg/m³)",Exposição,Kruskal-Wallis (variação entre meses),26.36393442622952,11,0.005727114961535477,"Evidência de sazonalidade (p < 0,05)"

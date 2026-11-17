@@ -4,7 +4,8 @@ Analysis of **congenital heart diseases (ICD-10 Q20–Q28)** among live births a
 hospital admissions of infants under one year old, residents of
 **Campos dos Goytacazes (RJ, Brazil)**, from **2020 to 2024**.
 
-**Author:** Letícia Maria Santos
+**Author:** Letícia Maria Dias Freitas
+**Co-author:** Ryan de Paulo Santos
 **Supervisor:** Francielly da Silva Santos Moreira
 
 Project developed as an undergraduate thesis (TCC).
@@ -158,22 +159,22 @@ analysis.
 
 ## CRediT — Contributor Roles Taxonomy
 
-| Role | Letícia Maria Santos | Francielly da Silva Santos Moreira |
-|------|:---:|:---:|
-| Conceptualization | ✓ | ✓ |
-| Data curation | ✓ | |
-| Formal analysis | ✓ | |
-| Funding acquisition | | |
-| Investigation | ✓ | |
-| Methodology | ✓ | ✓ |
-| Project administration | | ✓ |
-| Resources | ✓ | |
-| Software | ✓ | |
-| Supervision | | ✓ |
-| Validation | ✓ | ✓ |
-| Visualization | ✓ | |
-| Writing – original draft | ✓ | |
-| Writing – review & editing | ✓ | ✓ |
+| Role | Letícia Maria Dias Freitas | Ryan de Paulo Santos | Francielly da Silva Santos Moreira |
+|------|:---:|:---:|:---:|
+| Conceptualization | ✓ | | ✓ |
+| Data curation | ✓ | ✓ | |
+| Formal analysis | ✓ | ✓ | |
+| Funding acquisition | | | |
+| Investigation | ✓ | | |
+| Methodology | ✓ | ✓ | ✓ |
+| Project administration | | | ✓ |
+| Resources | ✓ | | |
+| Software | ✓ | | |
+| Supervision | | | ✓ |
+| Validation | ✓ | ✓ | ✓ |
+| Visualization | ✓ | | |
+| Writing – original draft | ✓ | | |
+| Writing – review & editing | ✓ | ✓ | ✓ |
 
 ---
 
@@ -189,8 +190,8 @@ analysis.
 ## How to cite
 
 ```bibtex
-@misc{santos_cardiopathies,
-  author       = {Santos, Letícia Maria},
+@misc{freitas_cardiopathies,
+  author       = {Freitas, Letícia Maria Dias and Santos, Ryan de Paulo},
   title        = {Congenital and Acquired Heart Diseases},
   year         = {2026},
   note         = {Supervisor: Francielly da Silva Santos Moreira. Undergraduate thesis},
