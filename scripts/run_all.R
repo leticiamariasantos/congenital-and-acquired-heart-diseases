@@ -30,6 +30,7 @@ scripts <- c(
   "05_generate_results_text.R",
   "06_etapa1_2020_2024.R",
   "08_etapa1_2010_2024.R",
+  "09_exploratoria_spearman.R",
   "07_panorama_2010_2024.R"
 )
 

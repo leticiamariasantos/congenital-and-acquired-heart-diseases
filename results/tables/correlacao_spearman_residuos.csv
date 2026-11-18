@@ -1,0 +1,13 @@
+conjunto,desfecho,exposicao,lag_meses,rho,p_valor,p_holm,magnitude
+Q20-Q26 (principal),Nascidos vivos (SINASC),Temperatura (°C),6–9,0.019207046343629255,0.803093521704485,1,desprezível
+Q20-Q26 (principal),Nascidos vivos (SINASC),Umidade relativa (%),6–9,-0.10095519235846115,0.18890112823020305,0.9445056411510153,desprezível
+Q20-Q26 (principal),Nascidos vivos (SINASC),"PM2,5 (µg/m³)",6–9,-0.03836849305205559,0.6183172587400271,1,desprezível
+Q20-Q26 (principal),Internações (SIH-RD),Temperatura (°C),0–3,-0.06073302055019823,0.4219648756044211,1,desprezível
+Q20-Q26 (principal),Internações (SIH-RD),Umidade relativa (%),0–3,-0.1706190162912692,0.023175439145909804,0.13905263487545882,desprezível
+Q20-Q26 (principal),Internações (SIH-RD),"PM2,5 (µg/m³)",0–3,0.007353577673516734,0.9226143157788755,1,desprezível
+Q20-Q28 (sensibilidade),Nascidos vivos (SINASC),Temperatura (°C),6–9,0.06110111119111048,0.42726387665037124,1,desprezível
+Q20-Q28 (sensibilidade),Nascidos vivos (SINASC),Umidade relativa (%),6–9,-0.10991672066623467,0.15238857712748724,0.7619428856374362,desprezível
+Q20-Q28 (sensibilidade),Nascidos vivos (SINASC),"PM2,5 (µg/m³)",6–9,-0.030230158158734737,0.6946881603332083,1,desprezível
+Q20-Q28 (sensibilidade),Internações (SIH-RD),Temperatura (°C),0–3,-0.053310191998060974,0.48098315510380296,1,desprezível
+Q20-Q28 (sensibilidade),Internações (SIH-RD),Umidade relativa (%),0–3,-0.16229592631706516,0.030909335177829622,0.18545601106697773,desprezível
+Q20-Q28 (sensibilidade),Internações (SIH-RD),"PM2,5 (µg/m³)",0–3,-0.015152957878153078,0.8413397065529322,1,desprezível
